@@ -181,7 +181,8 @@
             width: 100%;
             height: 100%;
         }
-
+        
+        /* O seletor .slide img agora também se aplica ao <img> dentro do <picture> */
         .slide img {
             display: block;
             width: 100%;
@@ -189,25 +190,17 @@
             object-fit: cover;
             object-position: center;
         }
-        
-        @media (max-width: 900px) {
-            .slide img {
-                object-fit: cover;
-                object-position: center;
-            }
-            
-            /* Ajuste específico para os banners Aurora e Líder - zoom out */
-            .slide-sadia img,
-            .slide-lider img {
-                object-fit: contain;
-                transform: scale(0.7);
-            }
-            
-            /* Ajuste específico para o banner Libras/Frimesa - zoom in */
-            .slide-frimesa img {
-                object-fit: cover;
-                transform: scale(1.3);
-            }
+
+        /* Aurora banner (aurora5.png) - preenche espaço sem deixar vazio */
+        .aurora-picture img {
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Frimesa banner (libramobile.png) - preenche espaço sem deixar vazio */
+        .frimesa-picture img {
+            object-fit: cover;
+            object-position: center;
         }
 
         .slider-btn {
@@ -390,20 +383,7 @@
             align-items: center;
             justify-content: center;
             padding: 1rem;
-            .slide img {
-                display: block;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
-            }
-        
-            @media (max-width: 900px) {
-                .slide img {
-                    object-fit: contain;
-                    object-position: center;
-                }
-            }
+            /* Removido o CSS que estava quebrado aqui */
             opacity: 1;
         }
 
@@ -811,6 +791,7 @@
             animation: fadeInUp 1s forwards;
         }
 
+        /* --- Início das Media Queries --- */
         @media (max-width: 900px) {
             .top-bar {
                 flex-direction: row;
@@ -878,6 +859,26 @@
 
             .hero-slider {
                 height: 50vh;
+            }
+
+            /* Ajuste para a imagem mobile. 
+              'contain' é melhor para banners verticais/quadrados no mobile.
+              Se preferir que corte (como no desktop), mude para 'cover'.
+            */
+            .slide img {
+                object-fit: contain; 
+            }
+
+            /* Aurora preenche todo o espaço sem deixar vazio */
+            .aurora-picture img {
+                object-fit: cover;
+                object-position: center;
+            }
+
+            /* Frimesa preenche todo o espaço sem deixar vazio */
+            .frimesa-picture img {
+                object-fit: cover;
+                object-position: center;
             }
 
             .slider-btn {
@@ -990,27 +991,39 @@
 
     <section id="inicio" class="hero-slider">
         <div class="slider-wrapper">
+            
             <div class="slide slide-sadia">
                 <a href="https://wa.me/5518997699734?text=vim%20pelo%20site%2C%20estou%20interresado%20como%20funciona%3F" target="_blank" aria-label="Compre pelo WhatsApp">
-                    <img src="imagens/banneraurora1.png" alt="Banner Aurora">
+                   <picture class="aurora-picture">
+    <source media="(max-width: 1000px)" srcset="imagens/aurora5.png">
+    <img src="imagens/banneraurora1.png" alt="Banner Aurora">
+</picture>
                 </a>
             </div>
+            
             <div class="slide slide-lider">
                 <a href="https://wa.me/5518997699734?text=vim%20pelo%20site%2C%20estou%20interresado%20como%20funciona%3F" target="_blank" aria-label="Compre pelo WhatsApp">
-                    <img src="imagens/bannerlider.png" alt="Banner Leite Líder">
+                    <picture>
+                        <source media="(max-width: 900px)" srcset="imagens/bannersadia1.png">
+                        <img src="imagens/bannerlider.png" alt="Banner Leite Líder">
+                    </picture>
                 </a>
             </div>
+            
             <div class="slide slide-frimesa">
                 <a href="https://wa.me/5518997699734?text=vim%20pelo%20site%2C%20estou%20interresado%20como%20funciona%3F" target="_blank" aria-label="Compre pelo WhatsApp">
-                    <img src="imagens/libras2.png" alt="Banner Frimesa">
+                    <picture class="frimesa-picture">
+                        <source media="(max-width: 900px)" srcset="imagens/librabanner.png">
+                        <img src="imagens/libras2.png" alt="Banner Frimesa">
+                    </picture>
                 </a>
             </div>
+
         </div>
         <button class="slider-btn prev-btn"></button>
         <button class="slider-btn next-btn"></button>
         <div class="slider-indicators"></div>
     </section>
-
     <section id="sobre" class="about fade-in">
         <h2>Sobre Nós</h2>
         <div class="about-content">
@@ -1345,7 +1358,7 @@
                                         `*E-mail:* ${encodeURIComponent(email)}%0A` +
                                         `*Telefone:* ${encodeURIComponent(telefone)}%0A` +
                                         `*Mensagem:* ${encodeURIComponent(mensagem)}`;
-                window.open(`httpshttps://wa.me/5518997699734?text=${whatsappMessage}`, '_blank');
+                window.open(`https://wa.me/5518997699734?text=${whatsappMessage}`, '_blank');
             });
 
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
