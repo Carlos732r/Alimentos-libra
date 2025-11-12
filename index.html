@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alimentos Libra - Qualidade e Confiança para seu Negócio</title>
-    <meta name="color-scheme" content="light">
+    
+    <meta name="color-scheme" content="light"> 
+    
    <style>
+        /* --- ADICIONADO AQUI --- */
+        :root {
+          color-scheme: light;
+        }
+        /* --- FIM DA ADIÇÃO --- */
+
         * {
             margin: 0;
             padding: 0;
@@ -414,10 +422,7 @@
             padding: 0.25rem;
         }
         
-        /* Estilos duplicados removidos daqui */
-        .partner-predilecta-custom {
-        }
-        
+      
         .partner-predilecta-custom:hover {
             transform: scale(1.1); /* Mantém o hover maior para este item */
             opacity: 1;
@@ -858,22 +863,18 @@
                 color: white;
             }
 
-            /* --- ALTERAÇÃO AQUI: Altura do slider reduzida (Sua Ideia!) --- */
+            /* --- SUA IDEIA IMPLEMENTADA AQUI --- */
             .hero-slider {
-                height: 35vh; /* REDUZIDO de 50vh para 35vh */
+                height: 35vh; /* Altura do slider reduzida para 35vh */
             }
 
-            /* --- ALTERAÇÃO AQUI: Banner Mobile --- */
-            /* * 'contain' é o padrão, para não cortar 'librateste.png' e 'bannersadia1.png'.
-            */
+            /* 'contain' é o padrão para não cortar os banners horizontais */
             .slide img {
                 object-fit: contain; 
                 object-position: center;
             }
             
-            /* * 'cover' é a exceção para o 'aurora5.png' (primeiro banner)
-             * para ele preencher a tela como solicitado.
-            */
+            /* 'cover' é a exceção para o aurora5.png (primeiro banner) */
             .aurora-picture img {
                 object-fit: cover;
             }
@@ -893,15 +894,10 @@
             }
 
             
-            /* --- ALTERAÇÃO AQUI: Logos Mobile --- */
             .partner-logo {
                 flex: 0 0 200px; /* Tamanho mobile */
                 height: 120px; /* Tamanho mobile */
-                /* Estilos de card (background, shadow, etc) são herdados do desktop */
             }
-            /* * O .partner-logo:hover foi removido daqui
-             * pois agora é global (definido fora da media query)
-            */
 
 
             /* --- RESPONSIVO: MAPA E LOCALIZAÇÃO --- */
@@ -963,9 +959,8 @@
                 flex-direction: column;
                 gap: 1rem;
             }
-            :root {
-                color-scheme: light;
-            }
+
+            /* O :root que estava aqui foi movido para o topo do CSS */
         }
 
     </style>
