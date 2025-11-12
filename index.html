@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alimentos Libra - Qualidade e Confiança para seu Negócio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            padding-top: 158px;
+        }
+
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 110px;
+        }
+
+        .logo-container {
+            height: 180px;
+        }
+        
+        .logo-container a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            height: 100%;
+        }
+
+        .logo-container img {
+            height: 100%;
+            width: auto;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .phone-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .phone-info svg {
+            width: 24px;
+            height: 24px;
+            fill: #333;
+        }
+
+        .whatsapp-button-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #25D366;
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .whatsapp-button-header:hover {
+            background: #128C7E;
+        }
+
+        .social-icon-header {
+            display: inline-block;
+        }
+
+        .social-icon-header img {
+            width: 38px;
+            height: 38px;
+            transition: opacity 0.3s;
+        }
+
+        .social-icon-header:hover img {
+            opacity: 0.7;
+        }
+
+        .main-nav {
+            background: #222;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.6rem 0.8rem;
+            transition: color 0.3s, background 0.3s;
+        }
+
+        .main-nav a:hover {
+            color: #3d8f44;
+            background: #333;
+        }
+
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 2.5rem;
+            color: #3d8f44;
+            cursor: pointer;
+        }
+
+        .nav-close {
+            display: none;
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            font-size: 3rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .hero-slider { 
+            width: 100%; 
+            position: relative; 
+            overflow: hidden; 
+            background: #f0f0f0; 
+            height: 600px;
+            max-height: 70vh;
+        }
+        
+        .slider-wrapper {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: linear-gradient(135deg, #0f5a7f 0%, #3d8f44 100%);
+        }
+        
+        .slide a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            color: #0f5a7f;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .slider-btn:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .prev-btn {
+            left: 20px;
+        }
+
+        .next-btn {
+            right: 20px;
+        }
+
+        .slider-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .indicator.active {
+            background: white;
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        .about {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            color: #0f5a7f;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 3rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            color: #3d8f44;
+            margin-bottom: 1rem;
+        }
+
+        .partners {
+            background: linear-gradient(135deg, #0f5a7f 0%, #3d8f44 100%);
+            padding: 80px 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partners::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0 Q300,60 600,30 T1200,0 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .partners h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .partners-intro {
+            text-align: center;
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+            padding: 3rem 0;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+        }
+
+        .carousel {
+            display: flex;
+            gap: 3rem;
+            animation: scroll 60s linear infinite;
+        }
+
+        .carousel:hover {
+            animation-play-state: paused;
+        }
+
+        .partner-logo {
+            flex: 0 0 250px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            transition: transform 0.3s;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .partner-logo:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            padding: 0.5rem;
+        }
+        
+        .partner-polenghi img {
+            transform: scale(1.15);
+            padding: 0.25rem;
+        }
+
+        .partner-predilecta img {
+            transform: scale(1.15);
+            padding: 0.25rem;
+        }
+        
+        .partner-predilecta-custom {
+            flex: 0 0 250px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            transition: transform 0.3s;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .partner-predilecta-custom:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+        
+        .partner-predilecta-custom img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            padding: 0.5rem;
+            transform: scale(1.3);
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-250px * 19 - 3rem * 19));
+            }
+        }
+
+        .contact {
+            padding: 80px 5%;
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .contact h2 {
+            color: #0f5a7f;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .contact-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-icon.whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+
+        .contact-icon.instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .contact-method-info h3 {
+            color: #0f5a7f;
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+            padding: 0;
+            border: none;
+        }
+
+        .contact-method-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #0f5a7f;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid #e8e8e8;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3d8f44;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(61, 143, 68, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, #3d8f44, #2d6f34);
+            color: white;
+            padding: 1.2rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(61, 143, 68, 0.3);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 25px rgba(61, 143, 68, 0.4);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+        }
+
+        /* --- INÍCIO: CSS DO MAPA ATUALIZADO --- */
+        .map-section {
+            padding: 80px 0 0 0; /* Remove padding lateral, mantém o superior */
+            background: #fdfdfd;
+        }
+        .map-section-content {
+            /* Este container segura o TEXTO centralizado */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%; /* Adiciona padding lateral para alinhar o texto */
+        }
+        .location-details-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem; /* Espaço entre o texto e o mapa */
+            text-align: center;
+        }
+        .location-info-col {
+            flex: 1;
+            min-width: 300px;
+        }
+        .location-info-col h3 {
+            color: #0f5a7f;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #3d8f44;
+            display: inline-block;
+        }
+        .location-info-col p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.7;
+        }
+        .map-full-container {
+            /* Este container segura o MAPA e é full-width */
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            /* border-radius e box-shadow removidos */
+        }
+        .map-full-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        /* --- FIM: CSS DO MAPA ATUALIZADO --- */
+
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: transform 0.3s;
+            z-index: 999;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 5px 30px rgba(37, 211, 102, 0.7);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            }
+        }
+        
+        footer {
+            color: white;
+        }
+
+        .footer-main {
+            background: #0f5a7f;
+            padding: 3rem 4%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 0;
+            border: none;
+        }
+        
+        .footer-col p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            margin: 0;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 0.5rem 0 0;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.1);
+        }
+        
+        .social-links img {
+            height: 35px;
+            width: 35px;
+            vertical-align: middle;
+            border-radius: 50%;
+            background: white;
+            padding: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
+        .footer-bottom {
+            background: #0a4a6a;
+            padding: 1.5rem 5%;
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .developer-credit {
+            margin-top: 0.5rem;
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .developer-credit a {
+            color: #3d8f44;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .developer-credit a:hover {
+            color: #5bc762;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+            animation: fadeInUp 1s forwards;
+        }
+
+        @media (max-width: 900px) {
+            .top-bar {
+                flex-direction: row;
+                justify-content: space-between;
+                height: 80px;
+                padding: 0.5rem 5%;
+            }
+
+            .logo-container {
+                height: 100px;
+            }
+            
+            .logo-text {
+                display: inline !important;
+                font-size: 1.2rem !important;
+            }
+
+            .header-contact {
+                display: none;
+            }
+
+            .mobile-nav-toggle {
+                display: block;
+            }
+
+            body {
+                padding-top: 100px;
+            }
+
+            .main-nav {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: #3d8f44;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                z-index: 2000;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .main-nav.active {
+                transform: translateX(0);
+            }
+
+            .main-nav.active .nav-close {
+                display: block;
+            }
+
+            .main-nav a {
+                font-size: 1.8rem;
+                color: white;
+                padding: 1rem;
+                background: none;
+            }
+            
+            .main-nav a:hover {
+                background: rgba(255, 255, 255, 0.1);
+                color: white;
+            }
+
+            .hero-slider {
+                height: 50vh;
+            }
+
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .prev-btn { left: 10px; }
+            .next-btn { right: 10px; }
+
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .partner-logo {
+                flex: 0 0 180px;
+                height: 100px;
+            }
+
+            /* --- RESPONSIVO: MAPA E LOCALIZAÇÃO --- */
+            .map-section {
+                padding: 60px 0 0 0; /* Ajusta padding para mobile */
+            }
+            .location-details-grid {
+                flex-direction: column; 
+                gap: 2rem;
+                margin-bottom: 2.5rem;
+            }
+            .location-info-col {
+                min-width: auto;
+            }
+            .map-full-container {
+                height: 300px;
+            }
+            /* --- FIM RESPONSIVO: MAPA E LOCALIZAÇÃO --- */
+
+
+            .contact-form {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .footer-info-grid {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="logo-container">
+                <a href="#inicio">
+                    <img src="imagens/logo.png" alt="Alimentos Libra" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22100%22><text x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 fill=%22%233d8f44%22 font-size=%2224%22 font-weight=%22bold%22>Alimentos Libra</text></svg>'">
+                    <span class="logo-text" style="font-size: 1.8rem; font-weight: 700; color: #333; white-space: nowrap; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                        Alimentos <span style="color: #1A4F7F;">Libra</span>
+                    </span>
+                </a>
+            </div>
+            
+            <div class="header-contact">
+                <a href="tel:+5518997699734" class="phone-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    <span>(18) 99769-9734</span>
+                </a>
+                <a href="https://wa.me/5518997699734?text=vim%20pelo%20site%2C%20estou%20interresado%20como%20funciona%3F" class="whatsapp-button-header" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+                    <span>Compre aqui</span>
+                </a>
+                <a href="https://www.instagram.com/alimentoslibra" class="social-icon-header" target="_blank">
+                    <img src="imagens/insta.png" alt="Instagram">
+                </a>
+            </div>
+
+            <button class="mobile-nav-toggle" aria-label="Abrir menu">☰</button>
+        </div>
+        
+        <nav class="main-nav">
+            <button class="nav-close" aria-label="Fechar menu">×</button>
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#parceiros">Parceiros</a>
+            <a href="#contato">Contato</a>
+            <a href="#localizacao">Localização</a>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero-slider">
+        <div class="slider-wrapper">
+            <div class="slide slide-sadia">
+                <a href="https://wa.me/5518997699734?text=vim%20pelo%20site%2C%20estou%20interresado%20como%20funciona%3F" target="_blank" aria-label="Compre pelo WhatsApp">
+                    <img src="imagens/banneraurora1.png" alt="Banner Aurora">
+                </a>
+            </div>
+            <div class="slide slide-lider">
+                <a href="https://wa.me/5518997699734?text=vim%20pelo%20site%2C%20estou%20interresado%20como%20funciona%3F" target="_blank" aria-label="Compre pelo WhatsApp">
+                    <img src="imagens/bannerlider.png" alt="Banner Leite Líder">
+                </a>
+            </div>
+            <div class="slide slide-frimesa">
+                <a href="https://wa.me/5518997699734?text=vim%20pelo%20site%2C%20estou%20interresado%20como%20funciona%3F" target="_blank" aria-label="Compre pelo WhatsApp">
+                    <img src="imagens/libras2.png" alt="Banner Frimesa">
+                </a>
+            </div>
+        </div>
+        <button class="slider-btn prev-btn"><</button>
+        <button class="slider-btn next-btn">></button>
+        <div class="slider-indicators"></div>
+    </section>
+
+    <section id="sobre" class="about fade-in">
+        <h2>Sobre Nós</h2>
+        <div class="about-content">
+            <p><strong>Alimentos Libra</strong>, você encontra tudo o que precisa para abastecer seu negócio com qualidade e confiança. Somos uma empresa especializada no segmento alimentício, oferecendo venda em atacado dos mais variados produtos.</p>
+            <p><strong>Sem crédito? Sem problema!</strong> Aqui, acreditamos no seu potencial. Se você ainda não tem o crédito necessário, nós oferecemos soluções para que você possa investir com segurança e crescer com a gente.</p>
+            <p>Além dos alimentos, oferecemos <strong>serviços de transporte com logística inteligente</strong>, garantindo que sua mercadoria chegue no prazo e em perfeitas condições.</p>
+        </div>
+
+        <div class="benefits">
+            <div class="benefit-card fade-in">
+                <div class="benefit-icon">🛒</div>
+                <h3>Venda no Atacado</h3>
+                <p>Produtos de qualidade com as melhores condições do mercado</p>
+            </div>
+            <div class="benefit-card fade-in">
+                <div class="benefit-icon">🚚</div>
+                <h3>Logística Completa</h3>
+                <p>Transporte seguro e pontual para sua mercadoria</p>
+            </div>
+            <div class="benefit-card fade-in">
+                <div class="benefit-icon">💳</div>
+                <h3>Soluções de Crédito</h3>
+                <p>Foco no capital de giro do seu negócio</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="parceiros" class="partners fade-in">
+        <h2>Veja Nossos Parceiros</h2>
+        <p class="partners-intro">Trabalhamos com as principais marcas do mercado para garantir a qualidade que o seu negócio merece.</p>
+        
+        <div class="carousel-wrapper">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="partner-logo"><img src="imagens/perdigao.png" alt="Perdigão"></div>
+                    <div class="partner-logo"><img src="imagens/sadia.png" alt="Sadia"></div>
+                    <div class="partner-logo"><img src="imagens/seara.png" alt="Seara"></div>
+                    <div class="partner-logo"><img src="imagens/tirolez.jpg" alt="Tirolez"></div>
+                    <div class="partner-logo"><img src="imagens/brasaburguer.png" alt="Brasa Burguer"></div>
+                    <div class="partner-logo"><img src="imagens/bunge.png" alt="Bunge"></div>
+                    <div class="partner-logo"><img src="imagens/ceratti.png" alt="Ceratti"></div>
+                    <div class="partner-logo"><img src="imagens/marba.png" alt="Marba"></div>
+                    <div class="partner-logo"><img src="imagens/misterbeef.png" alt="Mister Beef"></div>
+                    <div class="partner-logo partner-polenghi"><img src="imagens/polenghi.png" alt="Polenghi"></div>
+                    <div class="partner-logo"><img src="imagens/praticleve.png" alt="Pratic Leve"></div>
+                    <div class="partner-logo partner-predilecta-custom"><img src="imagens/predilecta.png" alt="Predilecta"></div>
+                    <div class="partner-logo"><img src="imagens/volpato.png" alt="Volpato"></div>
+                    <div class="partner-logo"><img src="imagens/aurora.png" alt="Aurora"></div>
+                    <div class="partner-logo"><img src="imagens/coamo.png" alt="Coamo"></div>
+                    <div class="partner-logo"><img src="imagens/dajuda.png" alt="Dajuda"></div>
+                    <div class="partner-logo"><img src="imagens/frimesa.png" alt="Frimesa"></div>
+                    <div class="partner-logo"><img src="imagens/vigor.png" alt="Vigor"></div>
+                    <div class="partner-logo"><img src="imagens/lider.png" alt="Leite Líder"></div>
+
+                    <div class="partner-logo"><img src="imagens/perdigao.png" alt="Perdigão"></div>
+                    <div class="partner-logo"><img src="imagens/sadia.png" alt="Sadia"></div>
+                    <div class="partner-logo"><img src="imagens/seara.png" alt="Seara"></div>
+                    <div class="partner-logo"><img src="imagens/tirolez.jpg" alt="Tirolez"></div>
+                    <div class="partner-logo"><img src="imagens/brasaburguer.png" alt="Brasa Burguer"></div>
+                    <div class="partner-logo"><img src="imagens/bunge.png" alt="Bunge"></div>
+                    <div class="partner-logo"><img src="imagens/ceratti.png" alt="Ceratti"></div>
+                    <div class="partner-logo"><img src="imagens/marba.png" alt="Marba"></div>
+                    <div class="partner-logo"><img src="imagens/misterbeef.png" alt="Mister Beef"></div>
+                    <div class="partner-logo partner-polenghi"><img src="imagens/polenghi.png" alt="Polenghi"></div>
+                    <div class="partner-logo"><img src="imagens/praticleve.png" alt="Pratic Leve"></div>
+                    <div class="partner-logo partner-predilecta-custom"><img src="imagens/predilecta.png" alt="Predilecta"></div>
+                    <div class="partner-logo"><img src="imagens/volpato.png" alt="Volpato"></div>
+                    <div class="partner-logo"><img src="imagens/aurora.png" alt="Aurora"></div>
+                    <div class="partner-logo"><img src="imagens/coamo.png" alt="Coamo"></div>
+                    <div class="partner-logo"><img src="imagens/dajuda.png" alt="Dajuda"></div>
+                    <div class="partner-logo"><img src="imagens/frimesa.png" alt="Frimesa"></div>
+                    <div class="partner-logo"><img src="imagens/vigor.png" alt="Vigor"></div>
+                    <div class="partner-logo"><img src="imagens/lider.png" alt="Leite Líder"></div>
+
+                    <div class="partner-logo"><img src="imagens/perdigao.png" alt="Perdigão"></div>
+                    <div class="partner-logo"><img src="imagens/sadia.png" alt="Sadia"></div>
+                    <div class="partner-logo"><img src="imagens/seara.png" alt="Seara"></div>
+                    <div class="partner-logo"><img src="imagens/tirolez.jpg" alt="Tirolez"></div>
+                    <div class="partner-logo"><img src="imagens/brasaburguer.png" alt="Brasa Burguer"></div>
+                    <div class="partner-logo"><img src="imagens/bunge.png" alt="Bunge"></div>
+                    <div class="partner-logo"><img src="imagens/ceratti.png" alt="Ceratti"></div>
+                    <div class="partner-logo"><img src="imagens/marba.png" alt="Marba"></div>
+                    <div class="partner-logo"><img src="imagens/misterbeef.png" alt="Mister Beef"></div>
+                    <div class="partner-logo partner-polenghi"><img src="imagens/polenghi.png" alt="Polenghi"></div>
+                    <div class="partner-logo"><img src="imagens/praticleve.png" alt="Pratic Leve"></div>
+                    <div class="partner-logo partner-predilecta-custom"><img src="imagens/predilecta.png" alt="Predilecta"></div>
+                    <div class="partner-logo"><img src="imagens/volpato.png" alt="Volpato"></div>
+                    <div class="partner-logo"><img src="imagens/aurora.png" alt="Aurora"></div>
+                    <div class="partner-logo"><img src="imagens/coamo.png" alt="Coamo"></div>
+                    <div class="partner-logo"><img src="imagens/dajuda.png" alt="Dajuda"></div>
+                    <div class="partner-logo"><img src="imagens/frimesa.png" alt="Frimesa"></div>
+                    <div class="partner-logo"><img src="imagens/vigor.png" alt="Vigor"></div>
+                    <div class="partner-logo"><img src="imagens/lider.png" alt="Leite Líder"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contact fade-in">
+        <h2>Fale Conosco</h2>
+        <p class="contact-subtitle">Entre em contato através dos nossos canais ou preencha o formulário abaixo</p>
+        
+        <div class="contact-info">
+            <a href="https://wa.me/5518997699734?text=vim%20pelo%20site%2C%20estou%20interresado%20como%20funciona%3F" class="contact-method" target="_blank">
+                <div class="contact-icon whatsapp">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+                </div>
+                <div class="contact-method-info">
+                    <h3>WhatsApp</h3>
+                    <p>(18) 99769-9734</p>
+                </div>
+            </a>
+            <a href="mailto:rodowallalimentos@gmail.com" class="contact-method">
+                <div class="contact-icon" style="background: linear-gradient(135deg, #EA4335, #FBBC05);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
+                </div>
+                <div class="contact-method-info">
+                    <h3>E-mail</h3>
+                    <p>rodowallalimentos@gmail.com</p>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/alimentoslibra" class="contact-method" target="_blank">
+                <div class="contact-icon instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg>
+                </div>
+                <div class="contact-method-info">
+                    <h3>Instagram</h3>
+                    <p>@alimentoslibra</p>
+                </div>
+            </a>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="empresa">Nome da Empresa</label>
+                    <input type="text" id="empresa" name="empresa" required>
+                </div>
+                <div class="form-group">
+                    <label for="responsavel">Nome do Responsável</label>
+                    <input type="text" id="responsavel" name="responsavel" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" placeholder="Conte-nos sobre suas necessidades..."></textarea>
+            </div>
+            <button type="submit" class="submit-button">Enviar via WhatsApp</button>
+        </form>
+    </section>
+
+    <section id="localizacao" class="map-section fade-in">
+        <div class="map-section-content">
+            <div class="location-details-grid">
+                <div class="location-info-col">
+                    <h3>Onde Atuamos</h3>
+                    <p>Atendemos toda a região de Presidente Prudente - SP.</p>
+                </div>
+                <div class="location-info-col">
+                    <h3>Horário de Atendimento</h3>
+                    <p><strong>Segunda a Sexta</strong></p>
+                    <p>08:00 - 12:00</p>
+                    <p>14:00 - 18:00</p>
+                </div>
+            </div>
+        </div>
+        <div class="map-full-container">
+            <iframe 
+                src="https://maps.google.com/maps?q=Presidente%20Prudente%2C%20SP&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                frameborder="0" 
+                scrolling="no" 
+                marginheight="0" 
+                marginwidth="0"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+    <a href="https://wa.me/5518997699734?text=vim%20pelo%20site%2C%20estou%20interresado%20como%20funciona%3F" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="white" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+    </a>
+    
+    <footer>
+        <div class="footer-main">
+            <div class="footer-content">
+                
+                <div class="footer-col">
+                    <h3>Empresa</h3>
+                    <p style="margin-bottom: 0.5rem;"><strong>Razão Social:</strong><br>Rodowall Transporte LTDA</p>
+                    <p style="margin-bottom: 0.5rem;"><strong>Nome Fantasia:</strong><br>Alimentos Libra</p>
+                    <p><strong>CNPJ:</strong><br>61.943.573/0001-43</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contato</h3>
+                    <p>📞 (18) 99769-9734</p>
+                    <p style="margin-top: 0.5rem;">📧 rodowallalimentos@gmail.com</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Localização</h3>
+                    <p>Presidente Prudente - SP</p>
+                    
+                    <h3 style="margin-top: 1rem;">Horário</h3>
+                    <p>Segunda a Sexta</p>
+                    <p>08:00 - 12:00</p>
+                    <p>14:00 - 18:00</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Redes Sociais</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/alimentoslibra" target="_blank" aria-label="Instagram">
+                            <img src="imagens/insta.png" alt="Instagram">
+                        </a>
+                        <a href="https://wa.me/5518997699734?text=Vim%20pelo%20site%2C%20estou%20interessado%20como%20funciona%3F" target="_blank" aria-label="WhatsApp">
+                            <img src="imagens/iconewhats.svg" alt="WhatsApp">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Alimentos Libra - Todos os direitos reservados</p>
+            <div class="developer-credit">
+                <p>Desenvolvido pela <a href="https://www.devdigital.br.com.br" target="_blank">Dev Digital BR</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sliderWrapper = document.querySelector('.slider-wrapper');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const indicatorsContainer = document.querySelector('.slider-indicators');
+            let indicators = [];
+            let currentIndex = 0;
+            const slideCount = slides.length;
+            let slideInterval;
+
+            function createIndicators() {
+                for (let i = 0; i < slideCount; i++) {
+                    const indicator = document.createElement('div');
+                    indicator.classList.add('indicator');
+                    indicator.dataset.index = i;
+                    indicator.addEventListener('click', () => {
+                        goToSlide(i);
+                        stopAutoplay();
+                        startAutoplay();
+                    });
+                    indicatorsContainer.appendChild(indicator);
+                    indicators.push(indicator);
+                }
+            }
+
+            function updateIndicators() {
+                indicators.forEach((indicator, i) => {
+                    if (i === currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+
+            function goToSlide(index) {
+                if (index < 0) {
+                    index = slideCount - 1;
+                } else if (index >= slideCount) {
+                    index = 0;
+                }
+                sliderWrapper.style.transform = `translateX(-${index * 100}%)`;
+                currentIndex = index;
+                updateIndicators();
+            }
+
+            function nextSlide() {
+                goToSlide(currentIndex + 1);
+            }
+
+            function prevSlide() {
+                goToSlide(currentIndex - 1);
+            }
+
+            function startAutoplay() {
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+
+            function stopAutoplay() {
+                clearInterval(slideInterval);
+            }
+
+            createIndicators();
+            updateIndicators();
+            startAutoplay();
+
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                stopAutoplay();
+                startAutoplay();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                stopAutoplay();
+                startAutoplay();
+            });
+
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const empresa = document.getElementById('empresa').value;
+                const responsavel = document.getElementById('responsavel').value;
+                const email = document.getElementById('email').value;
+                const telefone = document.getElementById('telefone').value;
+                const mensagem = document.getElementById('mensagem').value;
+                const whatsappMessage = `Olá! Gostaria de solicitar um orçamento:%0A%0A` +
+                                        `*Empresa:* ${encodeURIComponent(empresa)}%0A` +
+                                        `*Responsável:* ${encodeURIComponent(responsavel)}%0A` +
+                                        `*E-mail:* ${encodeURIComponent(email)}%0A` +
+                                        `*Telefone:* ${encodeURIComponent(telefone)}%0A` +
+                                        `*Mensagem:* ${encodeURIComponent(mensagem)}`;
+                window.open(`httpshttps://wa.me/5518997699734?text=${whatsappMessage}`, '_blank');
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = document.querySelector('.top-bar').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            const observerOptions = {
+                threshold: 0.1, 
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(element => {
+                observer.observe(element);
+            });
+
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            const mobileNavClose = document.querySelector('.nav-close');
+            const mainNav = document.querySelector('.main-nav');
+            const navLinks = document.querySelectorAll('.main-nav a');
+
+            if (mobileNavToggle) {
+                mobileNavToggle.addEventListener('click', () => {
+                    mainNav.classList.add('active');
+                });
+            }
+
+            if (mobileNavClose) {
+                mobileNavClose.addEventListener('click', () => {
+                    mainNav.classList.remove('active');
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
