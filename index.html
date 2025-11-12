@@ -862,12 +862,12 @@
                 height: 50vh;
             }
 
-            /* * ALTERAÇÃO AQUI:
-             * Agora, todos os banners no mobile usarão 'cover' (para preencher a tela)
-             * igual ao primeiro banner, como solicitado.
+            /* * MUDANÇA AQUI:
+             * 'contain' garante que a imagem inteira apareça, sem cortar.
+             * 'cover' (que estava antes) preenchia o espaço e cortava as bordas.
             */
             .slide img {
-                object-fit: cover; 
+                object-fit: contain; 
                 object-position: center;
             }
 
@@ -1102,7 +1102,9 @@
                     <div classs="partner-logo"><img src="imagens/sadia.png" alt="Sadia"></div>
                     <div class="partner-logo"><img src="imagens/seara.png" alt="Seara"></div>
                     <div class="partner-logo"><img src="imagens/tirolez.jpg" alt="Tirolez"></div>
+                    
                     <div class="partner-logo"><img src="imagens/brasaburguer.png" alt="Brasa Burguer"></div>
+                    
                     <div class="partner-logo"><img src="imagens/bunge.png" alt="Bunge"></div>
                     <div class="partner-logo"><img src="imagens/ceratti.png" alt="Ceratti"></div>
                     <div class="partner-logo"><img src="imagens/marba.png" alt="Marba"></div>
