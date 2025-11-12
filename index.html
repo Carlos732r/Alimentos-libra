@@ -377,6 +377,7 @@
             animation-play-state: paused;
         }
 
+        /* --- ALTERAÇÃO AQUI: Card aplicado a todas as logos no Desktop --- */
         .partner-logo {
             flex: 0 0 250px;
             height: 150px;
@@ -384,8 +385,16 @@
             align-items: center;
             justify-content: center;
             padding: 1rem;
-            /* Removido o CSS que estava quebrado aqui */
             opacity: 1;
+            /* Estilo de Card adicionado */
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .partner-logo:hover {
+            transform: scale(1.05);
         }
 
         .partner-logo img {
@@ -405,21 +414,10 @@
             padding: 0.25rem;
         }
         
-        .partner-predilecta-custom {
-            flex: 0 0 250px;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            transition: transform 0.3s;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
+     
         
         .partner-predilecta-custom:hover {
-            transform: scale(1.1);
+            transform: scale(1.1); /* Mantém o hover maior para este item */
             opacity: 1;
         }
         
@@ -862,19 +860,22 @@
                 height: 50vh;
             }
 
-            /* * MUDANÇA AQUI:
-             * 'contain' garante que a imagem inteira apareça, sem cortar.
-             * 'cover' (que estava antes) preenchia o espaço e cortava as bordas.
+
+            /* --- ALTERAÇÃO AQUI: Banner Mobile --- */
+            /* * 'contain' é o padrão, para não cortar 'librateste.png' e 'bannersadia1.png'.
             */
             .slide img {
                 object-fit: contain; 
                 object-position: center;
             }
-
-            /* As regras específicas para .aurora-picture e .frimesa-picture
-               foram removidas daqui, pois agora são desnecessárias.
-               A regra geral .slide img já cuida de todos.
+            
+            /* * 'cover' é a exceção para o 'aurora5.png' (primeiro banner)
+             * para ele preencher a tela como solicitado.
             */
+            .aurora-picture img {
+                object-fit: cover;
+            }
+
 
             .slider-btn {
                 width: 40px;
@@ -889,19 +890,16 @@
                 grid-template-columns: 1fr;
             }
 
-            /* --- INÍCIO: ALTERAÇÃO LOGOS MOBILE --- */
+            
+            /* --- ALTERAÇÃO AQUI: Logos Mobile --- */
             .partner-logo {
-                flex: 0 0 200px; /* Tamanho aumentado */
-                height: 120px; /* Tamanho aumentado */
-                background: #fff; /* Estilo de card */
-                border-radius: 10px; /* Estilo de card */
-                box-shadow: 0 3px 10px rgba(0,0,0,0.1); /* Estilo de card */
-                transition: transform 0.3s;
+                flex: 0 0 200px; /* Tamanho mobile */
+                height: 120px; /* Tamanho mobile */
+                /* Estilos de card (background, shadow, etc) são herdados do desktop */
             }
-            .partner-logo:hover {
-                transform: scale(1.05);
-            }
-            /* --- FIM: ALTERAÇÃO LOGOS MOBILE --- */
+            /* * O .partner-logo:hover foi removido daqui
+             * pois agora é global (definido fora da media query)
+            */
 
 
             /* --- RESPONSIVO: MAPA E LOCALIZAÇÃO --- */
@@ -1099,7 +1097,7 @@
                     <div class="partner-logo"><img src="imagens/lider.png" alt="Leite Líder"></div>
 
                     <div class="partner-logo"><img src="imagens/perdigao.png" alt="Perdigão"></div>
-                    <div classs="partner-logo"><img src="imagens/sadia.png" alt="Sadia"></div>
+                    <div class="partner-logo"><img src="imagens/sadia.png" alt="Sadia"></div>
                     <div class="partner-logo"><img src="imagens/seara.png" alt="Seara"></div>
                     <div class="partner-logo"><img src="imagens/tirolez.jpg" alt="Tirolez"></div>
                     
