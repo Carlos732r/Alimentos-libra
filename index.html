@@ -861,30 +861,24 @@
                 height: 50vh;
             }
 
-            /* Ajuste para a imagem mobile. 
-             'contain' é melhor para banners verticais/quadrados no mobile.
-             Se preferir que corte (como no desktop), mude para 'cover'.
+            /* * ALTERAÇÃO AQUI:
+             * Agora, todos os banners no mobile usarão 'cover' (para preencher a tela)
+             * igual ao primeiro banner, como solicitado.
             */
             .slide img {
-                object-fit: contain; 
-            }
-
-            /* Aurora preenche todo o espaço sem deixar vazio */
-            .aurora-picture img {
-                object-fit: cover;
+                object-fit: cover; 
                 object-position: center;
             }
 
-            /* Frimesa preenche todo o espaço sem deixar vazio */
-            .frimesa-picture img {
-                object-fit: cover;
-                object-position: center;
-            }
+            /* As regras específicas para .aurora-picture e .frimesa-picture
+               foram removidas daqui, pois agora são desnecessárias.
+               A regra geral .slide img já cuida de todos.
+            */
 
             .slider-btn {
                 width: 40px;
                 height: 40px;
-                font-size: 1.2rem; /* Adicionado para ajustar o tamanho da seta no mobile */
+                font-size: 1.2rem;
             }
             
             .prev-btn { left: 10px; }
@@ -1041,8 +1035,8 @@
             </div>
 
         </div>
-        <button class="slider-btn prev-btn">&#10094;</button>
-        <button class="slider-btn next-btn">&#10095;</button>
+        <button class="slider-btn prev-btn">❮</button>
+        <button class="slider-btn next-btn">❯</button>
         <div class="slider-indicators"></div>
     </section>
     <section id="sobre" class="about fade-in">
@@ -1100,7 +1094,7 @@
                     <div class="partner-logo"><img src="imagens/lider.png" alt="Leite Líder"></div>
 
                     <div class="partner-logo"><img src="imagens/perdigao.png" alt="Perdigão"></div>
-                    <div class="partner-logo"><img src="imagens/sadia.png" alt="Sadia"></div>
+                    <div classs="partner-logo"><img src="imagens/sadia.png" alt="Sadia"></div>
                     <div class="partner-logo"><img src="imagens/seara.png" alt="Seara"></div>
                     <div class="partner-logo"><img src="imagens/tirolez.jpg" alt="Tirolez"></div>
                     <div class="partner-logo"><img src="imagens/brasaburguer.png" alt="Brasa Burguer"></div>
